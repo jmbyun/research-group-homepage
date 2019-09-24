@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Members from './views/Members.vue'
+import Research from './views/Research.vue'
 
 Vue.use(Router)
 
@@ -16,8 +17,13 @@ export default new Router({
     },
     {
       path: '/members',
-      name: 'about',
+      name: 'members',
       component: Members
+    },
+    {
+      path: '/research',
+      name: 'research',
+      component: Research
     }
   ]
 })

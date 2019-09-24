@@ -1,11 +1,11 @@
 <template>
   <div class="members">
     <screen>
-      Hello world
+      <h2>Members</h2>
     </screen>
-    <div class="row">
+    <div class="row" v-for="(group, i) in members" :key="i">
       <div class="container">
-        <member-group v-for="(group, i) in members" :key="i" :group="group"/>
+        <member-group :group="group"/>
       </div>
     </div>
   </div>

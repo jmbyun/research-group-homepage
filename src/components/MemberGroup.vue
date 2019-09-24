@@ -1,17 +1,22 @@
 <template>
   <div class="group">
     <h3 class="title">{{ group.title }}</h3>
-    <member v-for="(member, i) in group.members" :key="i" :member="member"/>
+    <template v-for="(member, i) in group.members" >
+      <alumnus v-if="member.year" :key="i" :member="member" />
+      <member v-else :key="i" :member="member" />
+    </template>
   </div>
 </template>
 
 <script>
 import Member from '@/components/Member.vue'
+import Alumnus from '@/components/Alumnus.vue'
 
 export default {
   name: 'MemberGroup',
   components: {
-    Member
+    Member,
+    Alumnus
   },
   props: {
     group: Object
@@ -27,9 +32,7 @@ export default {
   margin: 0;
   padding: 0 0 2rem 0;
   font-size: 1.3rem;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-weight: bold;
   color: var(--main-color);
 }
 </style>
