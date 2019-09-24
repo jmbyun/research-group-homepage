@@ -1,5 +1,5 @@
 <template>
-  <div class="research-item">
+  <div class="research-item" :class="{ hidden: isHidden() }">
     <div class="title-row">
       <h4 class="title">{{ item.title }}</h4>
       <template v-for="tagId in item.tags">
@@ -31,7 +31,8 @@ export default {
   },
   props: {
     item: Object,
-    tags: Object
+    tags: Object,
+    activeTagId: String
   },
   data() {
     return {
@@ -39,6 +40,9 @@ export default {
     }
   },
   methods: {
+    isHidden() {
+      return (this.activeTagId !== null) && !this.item.tags.includes(this.activeTagId)
+    },
     sanitizeUrls(text) {
       if (!text) {
         return ''
@@ -53,6 +57,14 @@ export default {
 .research-item {
   padding: 0.3em 0;
   color: var(--text-color);
+  max-height: 25rem;
+  transition: max-height 2s ease;
+}
+.research-item.hidden {
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 .title-row {
   margin: 0;

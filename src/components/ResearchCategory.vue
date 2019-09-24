@@ -2,7 +2,7 @@
   <div class="category">
     <h3 class="title">{{ category.title }}</h3>
     <template v-for="(item, i) in category.items" >
-      <research-item :key="i" :item="item" :tags="tags" />
+      <research-item :key="i" :item="item" :tags="tags" :activeTagId="activeTagId" />
     </template>
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
   },
   props: {
     category: Object,
-    tags: Object
+    tags: Object,
+    activeTagId: String
   },
   data() {
     return {
