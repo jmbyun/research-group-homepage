@@ -57,7 +57,7 @@ export default {
 .research-item {
   padding: 0.3em 0;
   color: var(--text-color);
-  max-height: 25rem;
+  max-height: 13rem;
   transition: max-height 2s ease;
 }
 .research-item.hidden {

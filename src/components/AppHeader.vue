@@ -17,6 +17,12 @@
         <router-link class="menu-item" to="/research">
           Research
         </router-link>
+        <router-link class="menu-item" to="/research">
+          Links
+        </router-link>
+        <router-link class="menu-item" to="/research">
+          Contact
+        </router-link>
       </div>
     </div>
   </header>

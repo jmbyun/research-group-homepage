@@ -5,25 +5,27 @@
     </screen>
     <div class="row">
       <div class="container">
-        <h3 class="title">Topics</h3>
-        <div class="tags">
-          <a 
-            class="tag" 
-            :class="{ active: activeTagId === null }"
-            @click="() => setActiveTagId(null)"
-          >
-            Show All
-          </a>
-          <a
-            class="tag" 
-            v-for="tagId in Object.keys(tags)"
-            :key="tagId" 
-            :class="{ active: activeTagId === tagId }"
-            :style="{ backgroundColor: tags[tagId].color }"
-            @click="() => setActiveTagId(tagId)"
-          >
-            {{ tags[tagId].title }}
-          </a>
+        <div class="tag-selector">
+          <h3 class="title">Topics</h3>
+          <div class="tags">
+            <a 
+              class="tag" 
+              :class="{ active: activeTagId === null }"
+              @click="() => setActiveTagId(null)"
+            >
+              Show All
+            </a>
+            <a
+              class="tag" 
+              v-for="tagId in Object.keys(tags)"
+              :key="tagId" 
+              :class="{ active: activeTagId === tagId }"
+              :style="{ backgroundColor: tags[tagId].color }"
+              @click="() => setActiveTagId(tagId)"
+            >
+              {{ tags[tagId].title }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -67,6 +69,9 @@ export default {
 </script>
 
 <style scoped>
+.tag-selector {
+  padding: 1.5rem 0;
+}
 .title {
   margin: 0;
   padding: 0 0 2rem 0;
