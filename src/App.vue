@@ -1,40 +1,26 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <app-header/>
+    <router-view :members="members" />
   </div>
 </template>
 
 <script>
+import '@/styles/default.css'
+import AppHeader from '@/components/AppHeader.vue'
+import { loadMembers } from '@/helpers/loader.js'
 export default {
   name: 'App',
-  created() {
-    
+  components: {
+    AppHeader
   },
+  data() {
+    return {
+      members: []
+    }
+  },
+  created() {
+    loadMembers().then(v => (this.members = v))
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
