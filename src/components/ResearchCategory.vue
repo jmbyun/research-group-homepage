@@ -8,13 +8,11 @@
 </template>
 
 <script>
-import Screen from '@/components/Screen.vue'
 import ResearchItem from '@/components/ResearchItem.vue'
 
 export default {
   name: 'research-category',
   components: {
-    Screen,
     ResearchItem
   },
   props: {
