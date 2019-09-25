@@ -1,8 +1,6 @@
 <template>
   <div class="members">
-    <screen>
-      <h2>Members</h2>
-    </screen>
+    <screen />
     <div class="row" v-for="(group, i) in members" :key="i">
       <div class="container">
         <member-group :group="group"/>

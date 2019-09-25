@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <screen>
-      <h2>Contact</h2>
-    </screen>
+    <screen />
     <div class="row">
       <div class="container">
         <div class="contact">

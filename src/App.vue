@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <app-header :scrolled="scrolled" />
+    <div v-if="loading" class="spinner-container">
+      <spinner />
+    </div>
+    <app-header :scrolled="scrolled" :loading="loading" />
     <section class="body-content">
       <transition
         name="fade"
@@ -22,16 +25,19 @@
 import '@/styles/default.css'
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
+import Spinner from '@/components/Spinner.vue'
 import * as loader from '@/helpers/loader.js'
 export default {
   name: 'App',
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    Spinner
   },
   data() {
     return {
       scrolled: false,
+      loading: false,
       members: [],
       research: [],
       tags: {},
@@ -39,10 +45,7 @@ export default {
     }
   },
   created() {
-    loader.loadMembers().then(v => (this.members = v))
-    loader.loadResearch().then(v => (this.research = v))
-    loader.loadTags().then(v => (this.tags = v))
-    loader.loadLinks().then(v => (this.links = v))
+    this.loadSheets()
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
@@ -51,6 +54,29 @@ export default {
     window.removeEventListener("scroll", this.handleScroll)
   },
   methods: {
+    async loadSheets() {
+      let doneCount = 0
+      const done = () => {
+        doneCount++
+        if (doneCount === 3) {
+          this.loading = false
+        }
+      }
+      this.loading = true
+      this.research = await loader.loadResearch()
+      loader.loadTags().then(v => {
+        this.tags = v
+        done()
+      })
+      loader.loadMembers().then(v => {
+        this.members = v
+        done()
+      })
+      loader.loadLinks().then(v => {
+        this.links = v
+        done()
+      })
+    },
     handleScroll() {
       const top = window.scrollY
       const threshold = 30

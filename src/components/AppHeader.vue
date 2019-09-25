@@ -46,7 +46,7 @@ export default {
   height: 5rem;
   margin: 0;
   padding: 0;
-  z-index: 999;
+  z-index: 998;
   transition: height 1s ease, background-color 1s ease;
 }
 .header-scrolled {

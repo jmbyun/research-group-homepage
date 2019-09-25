@@ -1,8 +1,6 @@
 <template>
   <div class="research">
-    <screen>
-      <h2>Research</h2>
-    </screen>
+    <screen />
     <div class="row">
       <div class="container">
         <tag-selector :tags="tags" v-model="activeTagId" />

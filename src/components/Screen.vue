@@ -1,5 +1,5 @@
 <template>
-  <section class="screen">
+  <section class="screen" :class="{ 'screen-large': size === 'large' }">
     <div class="content">
       <slot/>
     </div>
@@ -10,7 +10,7 @@
 export default {
   name: 'AppHeader',
   props: {
-    float: Boolean,
+    size: String,
   },
 }
 </script>
@@ -29,6 +29,9 @@ export default {
   background-size: cover;
   z-index: 120;
 }
+.screen-large {
+  padding: 9.5rem 1rem 5.5rem 1rem;
+}
 .content {
   margin: 0 auto;
   max-width: var(--max-width);
@@ -36,15 +39,23 @@ export default {
   text-align: center;
 }
 .content /deep/ h1 {
+  display: inline-block;
   margin: 0;
-  padding: 2rem 0;
+  padding: 0;
   font-size: 1.6rem;
   font-weight: bold;
 }
 .content /deep/ h2 {
+  display: inline-block;
   margin: 0;
   padding: 0;
   font-size: 1.4rem;
   font-weight: bold;
+}
+.content /deep/ small {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
 }
 </style>

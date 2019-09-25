@@ -1,8 +1,6 @@
 <template>
   <div class="links">
-    <screen>
-      <h2>Links</h2>
-    </screen>
+    <screen />
     <div class="row" v-for="(group, i) in links" :key="i">
       <div class="container">
         <link-group :group="group"/>
