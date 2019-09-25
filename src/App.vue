@@ -5,7 +5,12 @@
       name="fade"
       mode="out-in"
     >
-      <router-view :members="members" :research="research" :tags="tags" />
+      <router-view 
+        :members="members" 
+        :research="research" 
+        :tags="tags" 
+        :links="links"
+      />
     </transition>
   </div>
 </template>
@@ -25,12 +30,14 @@ export default {
       members: [],
       research: [],
       tags: {},
+      links: []
     }
   },
   created() {
     loader.loadMembers().then(v => (this.members = v))
     loader.loadResearch().then(v => (this.research = v))
     loader.loadTags().then(v => (this.tags = v))
+    loader.loadLinks().then(v => (this.links = v))
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll)

@@ -17,10 +17,10 @@
         <router-link class="menu-item" to="/research">
           Research
         </router-link>
-        <router-link class="menu-item" to="/research">
+        <router-link class="menu-item" to="/links">
           Links
         </router-link>
-        <router-link class="menu-item" to="/research">
+        <router-link class="menu-item" to="/contact">
           Contact
         </router-link>
       </div>

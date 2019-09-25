@@ -71,3 +71,30 @@ export async function loadTags() {
   }
   return tags
 }
+
+export async function loadLinks() {
+  const response = await sheets.getContent(DOC_ID, 'Links', 'A2:G')
+  const groups = []
+  let group = null
+  for (let row of response.values) {
+    const category = row[0]
+    if (!group || (group.category !== category)) {
+      if (group) {
+        groups.push(group)
+      }
+      group = { category, links: [] }
+    }
+    group.links.push({
+      title: row[1],
+      fullTitle: row[2],
+      url: row[3],
+      query: row[4],
+      callMonth: row[5],
+      eventMonth: row[6]
+    })
+  }
+  if (group) {
+    groups.push(group)
+  }
+  return groups
+}
