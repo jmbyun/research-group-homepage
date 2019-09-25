@@ -1,5 +1,9 @@
 <template>
-  <section class="screen" :class="{ 'screen-large': size === 'large' }">
+  <section 
+    class="screen" 
+    :class="{ 'screen-large': size === 'large' }"
+    :style="getStyleWithBgImage()"
+  >
     <div class="content">
       <slot/>
     </div>
@@ -7,11 +11,28 @@
 </template>
 
 <script>
+const BASE_URL = process.env.BASE_URL;
 export default {
   name: 'AppHeader',
   props: {
     size: String,
+    backgroundSrc: String
   },
+  data() {
+    return {
+      baseUrl: BASE_URL
+    }
+  },
+  methods: {
+    getStyleWithBgImage() {
+      const url = (this.backgroundSrc || '').replace(/@\//g, this.baseUrl)
+      return { backgroundImage: `linear-gradient(
+          rgba(0, 0, 0, 0.5), 
+          rgba(0, 0, 0, 0.5)
+        ),
+        url("${url}")` }
+    }
+  }
 }
 </script>
 
@@ -23,8 +44,9 @@ export default {
           rgba(0, 0, 0, 0.7)
         ),
         url("../assets/kaist.jpg");
-  background-attachment: fixed;
-  background-position: center;
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-position: center 85%;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 120;

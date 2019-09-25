@@ -1,6 +1,9 @@
 <template>
   <div class="links">
-    <screen />
+    <screen backgroundSrc="@/images/backgrounds/ki_night.jpg">
+      <h2>Links</h2><br />
+      <small>Users &amp; Information Lab. @ KAIST</small>
+    </screen>
     <div class="row" v-for="(group, i) in links" :key="i">
       <div class="container">
         <link-group :group="group"/>

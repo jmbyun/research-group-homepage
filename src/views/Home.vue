@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <screen size="large">
+    <screen size="large" backgroundSrc="@/images/backgrounds/cs_building_night.jpg">
       <h1>Users &amp; Information Lab. @ KAIST</h1><br />
       <small>Artificial Intelligence | Social Computing | Interactive Computing</small>
     </screen>

@@ -1,5 +1,5 @@
 <template>
-  <div class="research-item" :class="{ hidden: isHidden() }">
+  <div class="research-item row-item" :class="{ hidden: isHidden() }">
     <div class="title-row">
       <h4 class="title">{{ item.title }}</h4>
       <template v-for="tagId in item.tags">
@@ -15,7 +15,7 @@
     </div>
     <div class="authors">{{ item.authors }}</div>
     <div class="booktitle">{{ item.booktitle }}</div>
-    <div class="links member-links">
+    <div class="link-buttons link-buttons-small">
       <vue-markdown :source="sanitizeUrls(item.links)" :breaks="false" />
     </div>
   </div>
@@ -58,10 +58,13 @@ export default {
   padding: 0.3em 0;
   color: var(--text-color);
   max-height: 13rem;
-  transition: max-height 2s ease;
+  transition: all 0.5s ease;
+  /* transition: left 2s ease; */
 }
 .research-item.hidden {
+  opacity: 0;
   max-height: 0;
+  /* display: none; */
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -104,27 +107,5 @@ export default {
   font-weight: normal;
   font-style: italic;
   color: var(--grey-color);
-}
-.links {
-  display: block;
-  padding: 0.3rem 0;
-}
-.links /deep/ p {
-  padding: 0;
-  margin: 0;
-}
-.links /deep/ a {
-  display: inline-block;
-  padding: 0.2rem 0.3rem;
-  margin-right: 0.1rem;
-  border-radius: 4px;
-  background-color: var(--main-color);
-  color: var(--white-color);
-  text-decoration: none;
-  font-size: 0.7rem;
-  transition: background-color 0.5s ease;
-}
-.links /deep/ a:hover {
-  background-color: var(--link-color);
 }
 </style>

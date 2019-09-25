@@ -1,19 +1,21 @@
 <template>
-  <div class="member">
-    <div 
-      class="image" 
-      :style="getStyleWithImage(member.image)">
-    </div>
-    <div class="text">
-      <h4 class="name">{{ member.name }}</h4>
-      <a class="email" :href="`mailto:${member.email}`">
-        {{ member.email }}
-      </a>
-      <div class="description">
-        <vue-markdown :source="member.description"/>
+  <div class="row-card-item">
+    <div class="member">
+      <div 
+        class="image" 
+        :style="getStyleWithImage(member.image)">
       </div>
-      <div class="links">
-        <vue-markdown :source="member.links" :breaks="false" />
+      <div class="text">
+        <h4 class="name">{{ member.name }}</h4>
+        <a class="email" :href="`mailto:${member.email}`">
+          {{ member.email }}
+        </a>
+        <div class="description">
+          <vue-markdown :source="member.description"/>
+        </div>
+        <div class="link-buttons">
+          <vue-markdown :source="member.links" :breaks="false" />
+        </div>
       </div>
     </div>
   </div>
@@ -49,8 +51,8 @@ export default {
 <style scoped>
 .member {
   position: relative;
-  padding: 0.8rem 0 0.8rem 10rem;
-  min-height: 10.6em;
+  padding: 1rem 1rem 1rem 9.8rem;
+  min-height: 12rem;
   color: var(--text-color);
   font-size: 0.9rem;
 }
@@ -78,22 +80,6 @@ export default {
 .description {
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
-}
-.links {
-  display: block;
-}
-.links /deep/ a {
-  display: inline-block;
-  padding: 0.3rem 0.5rem;
-  margin-right: 0.15rem;
-  border-radius: 4px;
-  background-color: var(--main-color);
-  color: var(--white-color);
-  text-decoration: none;
-  font-size: 0.7rem;
-  transition: background-color 0.5s ease;
-}
-.links /deep/ a:hover {
-  background-color: var(--link-color);
+  font-size: 0.85rem;
 }
 </style>

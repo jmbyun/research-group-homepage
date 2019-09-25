@@ -1,5 +1,5 @@
 <template>
-  <div class="link-item">
+  <div class="link-item row-card-item">
     <div class="title">{{ link.title }}</div>
     <div class="subtitle" v-if="link.fullTitle">{{ link.fullTitle }}</div>
     <div class="description" v-if="link.eventMonth">

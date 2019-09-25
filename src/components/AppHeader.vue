@@ -3,24 +3,27 @@
     class="header" 
     :class="{ 'header-scrolled': scrolled  }"
   >
-    <div class="content">
+    <div class="header-content">
       <div class="logo">
+        <div class="logo-drawing-container">
+          <div class="logo-drawing" ref="logo"></div>
+        </div>
         <div class="logo-text">USERS &amp;<br />INFORMATION</div>
       </div>
-      <div class="menu">
-        <router-link class="menu-item" to="/">
+      <div class="header-menu">
+        <router-link class="header-menu-item" to="/">
           Home
         </router-link>
-        <router-link class="menu-item" to="/members">
+        <router-link class="header-menu-item" to="/members">
           Members
         </router-link>
-        <router-link class="menu-item" to="/research">
+        <router-link class="header-menu-item" to="/research">
           Research
         </router-link>
-        <router-link class="menu-item" to="/links">
+        <router-link class="header-menu-item" to="/links">
           Links
         </router-link>
-        <router-link class="menu-item" to="/contact">
+        <router-link class="header-menu-item" to="/contact">
           Contact
         </router-link>
       </div>
@@ -29,15 +32,38 @@
 </template>
 
 <script>
+import Logo from 'uilab-logo.js/lib/uilab-logo'
 export default {
   name: 'AppHeader',
   props: {
     scrolled: Boolean,
   },
+  data() {
+    return {
+      logo: null
+    }
+  },
+  mounted() {
+    this.logo = new Logo(this.$refs.logo, { defaultColor: '#ffffff' })
+  },
+  watch: {
+    scrolled() {
+      if (this.scrolled) {
+        this.logo.options.defaultColor = '#222222'
+      } else {
+        this.logo.options.defaultColor = '#ffffff'
+      }
+      this.logo.circles.map(circle => {
+        if (circle !== this.logo.circleMatrix[0][1]) {
+          circle.fill(this.logo.options.defaultColor)
+        }
+      })
+    }
+  }
 }
 </script>
 
-<style scoped>
+<style>
 .header {
   position: fixed;
   top: 0;
@@ -52,8 +78,9 @@ export default {
 .header-scrolled {
   height: 3.75rem;
   background-color: var(--header-scrolled-bg-color);
+  border-bottom: 1px solid var(--light-grey-color);
 }
-.content {
+.header-content {
   display: flex;
   margin: 0 auto;
   padding: 0;
@@ -67,13 +94,22 @@ export default {
   border-bottom: 1px solid var(--header-border-color);
 }
 .header-scrolled .content {
-  border-bottom=color: var(--grey-color);
+  border: 0; 
 }
 .logo {
   flex: 0 0 auto;
 }
+.logo-drawing-container {
+  float: left;
+}
+.logo-drawing {
+  width: 2.7rem;
+  height: 2.7rem;
+  color: black;
+}
 .logo-text {
   display: block;
+  float: left;
   padding: 0 0.5rem;
   font-size: 1.1rem;
   line-height: 1.2em;
@@ -88,13 +124,13 @@ export default {
   height: 2.5rem;
   width: auto;
 }
-.menu {
+.header-menu {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.menu-item {
+.header-menu-item {
   padding: 1rem 1rem;
   text-decoration: none;
   color: var(--header-text-color);
@@ -104,14 +140,56 @@ export default {
   letter-spacing: 1px;
   transition: color 1s ease;
 }
-.header-scrolled .menu-item {
+.header-scrolled .header-menu-item {
   color: var(--grey-color);
 }
-.menu-item:hover {
+.header-menu-item:hover {
   color: var(--header-text-highlight-color);
 }
-.header-scrolled .menu-item:hover {
+.header-scrolled .header-menu-item:hover {
   color: var(--text-color);
+}
+
+@media screen and (max-width: 48rem) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5.5rem;
+    margin: 0;
+    padding: 0;
+    z-index: 998;
+    transition: height 1s ease, background-color 1s ease;
+  }
+  .header-scrolled {
+    height: 5.5rem;
+    background-color: var(--header-scrolled-bg-color);
+    border-bottom: 1px solid var(--light-grey-color);
+  }
+  .header-content {
+    display: flex;
+    padding: 0.5rem 0.5rem;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--header-border-color);
+  }
+  .header-menu {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .header-menu-item {
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    color: var(--header-text-color);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 1s ease;
+  }
 }
 
 </style>

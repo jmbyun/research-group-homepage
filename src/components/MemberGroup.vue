@@ -1,6 +1,6 @@
 <template>
-  <div class="group">
-    <h3 class="title">{{ group.title }}</h3>
+  <div class="group v-padded">
+    <h3 class="row-title">{{ group.title }}</h3>
     <template v-for="(member, i) in group.members" >
       <alumnus v-if="member.year" :key="i" :member="member" />
       <member v-else :key="i" :member="member" />
@@ -24,15 +24,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.group {
-  padding: 1.5rem 0;
-}
-.title {
-  margin: 0;
-  padding: 0 0 2rem 0;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--main-color);
-}
-</style>

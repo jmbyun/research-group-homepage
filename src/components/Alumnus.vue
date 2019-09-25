@@ -1,23 +1,23 @@
 <template>
-  <div class="member">
+  <div class="member row-card-item">
     <div 
       class="image" 
       :style="getStyleWithImage(member.image)">
     </div>
     <div class="text">
-      <div class="main-row">
-        <h4 class="row-item name">{{ member.name }}</h4>
-        <a class="row-item email" :href="`mailto:${member.email}`">
+      <div class="text-row">
+        <h4 class="text-item name">{{ member.name }}</h4>
+        <a class="text-item email" :href="`mailto:${member.email}`">
           {{ member.email }}
         </a>
-        <div class="row-item grad">
+        <div class="text-item grad">
           {{ `(${member.degree}, ${member.year})` }}
         </div>
       </div>
       <div class="description">
         <vue-markdown :source="member.description"/>
       </div>
-      <div class="links">
+      <div class="link-buttons link-buttons-small">
         <vue-markdown :source="member.links" :breaks="false" />
       </div>
     </div>
@@ -54,10 +54,11 @@ export default {
 <style scoped>
 .member {
   position: relative;
-  padding: 0.6rem 0 0.6rem 6rem;
-  min-height: 6.2em;
+  padding: 1rem 1rem 1rem 6rem;
+  min-height: 7em;
   color: var(--text-color);
   font-size: 0.9rem;
+  overflow: auto;
 }
 .image {
   position: absolute;
@@ -67,13 +68,13 @@ export default {
   height: 5rem;
   background-size: cover;
 }
-.main-row {
+.text-row {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: flex-start;
 }
-.row-item {
+.text-item {
   flex: 0 0 auto;
   margin-left: 0.5rem;
 }
@@ -103,30 +104,5 @@ export default {
   margin: 0.2rem 0;
   color: var(--grey-color);
   font-size: 0.8rem;
-}
-.links {
-  display: block;
-}
-.links /deep/ p {
-  padding: 0;
-  margin: 0.2rem 0;
-}
-.links /deep/ a {
-  display: inline-block;
-  padding: 0.2rem 0.35rem;
-  margin-right: 0.15rem;
-  border-radius: 4px;
-  /* border: 1px solid var(--button-border-color);
-  font-size: 0.8rem;
-  color: var(--button-color);
-  text-decoration: none; */
-  background-color: var(--main-color);
-  color: var(--white-color);
-  text-decoration: none;
-  font-size: 0.7em;
-  transition: background-color 0.5s ease;
-}
-.links /deep/ a:hover {
-  background-color: var(--link-color);
 }
 </style>

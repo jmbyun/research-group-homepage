@@ -1,6 +1,9 @@
 <template>
   <div class="members">
-    <screen />
+    <screen backgroundSrc="@/images/backgrounds/ducks_grass.jpg">
+      <h2>Members</h2><br />
+      <small>Users &amp; Information Lab. @ KAIST</small>
+    </screen>
     <div class="row" v-for="(group, i) in members" :key="i">
       <div class="container">
         <member-group :group="group"/>

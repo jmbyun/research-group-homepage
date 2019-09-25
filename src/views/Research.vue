@@ -1,6 +1,9 @@
 <template>
   <div class="research">
-    <screen />
+    <screen backgroundSrc="@/images/backgrounds/library.jpg">
+      <h2>Research</h2><br />
+      <small>Users &amp; Information Lab. @ KAIST</small>
+    </screen>
     <div class="row">
       <div class="container">
         <tag-selector :tags="tags" v-model="activeTagId" />

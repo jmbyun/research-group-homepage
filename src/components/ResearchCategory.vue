@@ -1,6 +1,6 @@
 <template>
-  <div class="category">
-    <h3 class="title">{{ category.title }}</h3>
+  <div class="category v-padded">
+    <h3 class="row-title">{{ category.title }}</h3>
     <template v-for="(item, i) in category.items" >
       <research-item :key="i" :item="item" :tags="tags" :activeTagId="activeTagId" />
     </template>
@@ -27,16 +27,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.category {
-  padding: 1.5rem 0;
-}
-.title {
-  margin: 0;
-  padding: 0 0 2rem 0;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--main-color);
-}
-</style>
