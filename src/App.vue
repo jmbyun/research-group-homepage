@@ -1,28 +1,33 @@
 <template>
   <div id="app">
     <app-header :scrolled="scrolled" />
-    <transition
-      name="fade"
-      mode="out-in"
-    >
-      <router-view 
-        :members="members" 
-        :research="research" 
-        :tags="tags" 
-        :links="links"
-      />
-    </transition>
+    <section class="body-content">
+      <transition
+        name="fade"
+        mode="out-in"
+      >
+        <router-view 
+          :members="members" 
+          :research="research" 
+          :tags="tags" 
+          :links="links"
+        />
+      </transition>
+    </section>
+    <app-footer />
   </div>
 </template>
 
 <script>
 import '@/styles/default.css'
 import AppHeader from '@/components/AppHeader.vue'
+import AppFooter from '@/components/AppFooter.vue'
 import * as loader from '@/helpers/loader.js'
 export default {
   name: 'App',
   components: {
-    AppHeader
+    AppHeader,
+    AppFooter
   },
   data() {
     return {
