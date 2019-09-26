@@ -73,7 +73,7 @@ export default {
   margin: 0;
   padding: 0;
   z-index: 998;
-  transition: height 1s ease, background-color 1s ease;
+  transition: all 1s ease;
 }
 .header-scrolled {
   height: 3.75rem;

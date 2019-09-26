@@ -6,6 +6,7 @@ sheets.setKey(API_KEY)
 
 export async function loadData() {
   const ranges = [
+    'Announcements!A2:B',
     'Members!A2:H',
     'Research!A2:F',
     'Tags!A2:F',
@@ -13,11 +14,23 @@ export async function loadData() {
   ]
   const response = await sheets.getRanges(DOC_ID, ranges)
   const valueRanges = response.valueRanges
-  const members = getMembersFromValues(valueRanges[0].values)
-  const research = getResearchFromValues(valueRanges[1].values)
-  const tags = getTagsFromValues(valueRanges[2].values)
-  const links = getLinksFromValues(valueRanges[3].values)
-  return { members, research, tags, links }
+  const announcements = getAnnouncementsFromValues(valueRanges[0].values)
+  const members = getMembersFromValues(valueRanges[1].values)
+  const research = getResearchFromValues(valueRanges[2].values)
+  const tags = getTagsFromValues(valueRanges[3].values)
+  const links = getLinksFromValues(valueRanges[4].values)
+  return { announcements, members, research, tags, links }
+}
+
+function getAnnouncementsFromValues(values) {
+  const announcements = []
+  for (let row of values) {
+    announcements.push({
+      title: row[0],
+      content: row[1]
+    })
+  }
+  return announcements
 }
 
 function getMembersFromValues(values) {

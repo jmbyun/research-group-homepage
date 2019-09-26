@@ -10,8 +10,9 @@
         mode="out-in"
       >
         <router-view 
-          :members="members" 
+          :announcements="announcements"
           :research="research" 
+          :members="members" 
           :tags="tags" 
           :links="links"
         />
@@ -38,8 +39,9 @@ export default {
     return {
       scrolled: false,
       loading: false,
-      members: [],
+      announcements: [],
       research: [],
+      members: [],
       tags: {},
       links: []
     }
@@ -57,6 +59,7 @@ export default {
     async loadData() {
       this.loading = true
       const data = await loader.loadData()
+      this.announcements = data.announcements
       this.research = data.research
       this.members = data.members
       this.tags = data.tags

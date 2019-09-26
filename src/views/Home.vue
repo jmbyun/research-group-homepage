@@ -6,6 +6,11 @@
     </screen>
     <div class="row">
       <div class="container">
+        <announcements :announcements="announcements" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="container">
         <latest-publications :research="research" :tags="tags" />
       </div>
     </div>
@@ -14,15 +19,18 @@
 
 <script>
 import Screen from '@/components/Screen.vue'
+import Announcements from '@/components/Announcements.vue'
 import LatestPublications from '@/components/LatestPublications.vue'
 
 export default {
   name: 'home',
   components: {
     Screen,
+    Announcements,
     LatestPublications
   },
   props: {
+    announcements: Array,
     research: Array,
     tags: Object
   }
