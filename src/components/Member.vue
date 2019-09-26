@@ -14,7 +14,7 @@
           <vue-markdown :source="member.description"/>
         </div>
         <div class="link-buttons">
-          <vue-markdown :source="member.links" :breaks="false" />
+          <vue-markdown :source="sanitizeUrls(member.links)" :breaks="false" />
         </div>
       </div>
     </div>
@@ -38,11 +38,11 @@ export default {
     }
   },
   methods: {
-    sanitizeUrl(url) {
-      return url.replace('@/', this.baseUrl);
+    sanitizeUrls(url) {
+      return url.replace(/@\//g, this.baseUrl);
     },
     getStyleWithImage(url) {
-      return { backgroundImage: `url("${this.sanitizeUrl(url)}")` }
+      return { backgroundImage: `url("${this.sanitizeUrls(url)}")` }
     }
   }
 }

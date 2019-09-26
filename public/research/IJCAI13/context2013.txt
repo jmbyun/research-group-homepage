@@ -1,0 +1,8 @@
+@inproceedings{kim2013context,
+  title={Context-dependent conceptualization},
+  author={Kim, Dongwoo and Wang, Haixun and Oh, Alice},
+  booktitle={Proceedings of the Twenty-Third international joint conference on Artificial Intelligence},
+  pages={2654--2661},
+  year={2013},
+  organization={AAAI Press}
+}

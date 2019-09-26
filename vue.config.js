@@ -1,4 +1,6 @@
 module.exports = {
-  publicPath: '/dist',
-  indexPath: '../index.html'
+  publicPath: '/',
+  outputDir: 'dist',
+  indexPath: 'index.html',
+  assetsDir: 'lib'
 }
