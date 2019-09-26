@@ -4,6 +4,7 @@
     <div 
       v-for="(announcement, i) in announcements" 
       class="announcement row-item"
+      :key="i"
     >
       <h4 v-if="announcement.title" class="announcement-title">
         {{ announcement.title }}
