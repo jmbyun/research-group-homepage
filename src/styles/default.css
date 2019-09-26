@@ -80,7 +80,6 @@ body {
   max-width: 50%;
   padding: 0;
   color: var(--text-color);
-  max-height: 13rem;
   overflow: hidden;
   transition: all 0.5s ease;
 }
@@ -137,6 +136,60 @@ body {
   background-color: var(--link-color);
 }
 
+.member {
+  position: relative;
+  padding: 1rem 1rem 1rem 9.8rem;
+  min-height: 12rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.member-image {
+  position: absolute;
+  left: 0;
+  border-radius: 1rem;
+  width: 9rem;
+  height: 9rem;
+  background-size: cover;
+}
+
+.member-text {
+  position: relative;
+}
+
+.member-name {
+  margin: 0;
+  padding: 0 0 0.2rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.member-email {
+  display: block;
+  padding-bottom: 0.3rem;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.member-description {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.text-row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.text-item {
+  flex: 0 0 auto;
+  margin-left: 0.5rem;
+}
+
 @media screen and (max-width: 64rem) {
   .row-card-item {
     width: 100%;
@@ -166,5 +219,26 @@ body {
     font-size: 1.3rem;
     font-weight: bold;
     color: var(--main-color);
+  }
+
+  .member {
+    padding: 1rem 1rem 1rem 5.8rem;
+    min-height: 6rem;
+  }
+
+  .member-image {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .text-row {
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .text-item {
+    flex: 0 0 auto;
+    margin-left: 0;
   }
 }

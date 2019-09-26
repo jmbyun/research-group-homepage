@@ -2,15 +2,15 @@
   <div class="row-card-item">
     <div class="member">
       <div 
-        class="image" 
+        class="member-image" 
         :style="getStyleWithImage(member.image)">
       </div>
-      <div class="text">
-        <h4 class="name">{{ member.name }}</h4>
-        <a class="email" :href="`mailto:${member.email}`">
+      <div class="member-text">
+        <h4 class="member-name">{{ member.name }}</h4>
+        <a class="member-email" :href="`mailto:${member.email}`">
           {{ member.email }}
         </a>
-        <div class="description">
+        <div class="member-description">
           <vue-markdown :source="member.description"/>
         </div>
         <div class="link-buttons">
@@ -48,38 +48,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.member {
-  position: relative;
-  padding: 1rem 1rem 1rem 9.8rem;
-  min-height: 12rem;
-  color: var(--text-color);
-  font-size: 0.9rem;
-}
-.image {
-  position: absolute;
-  left: 0;
-  border-radius: 1rem;
-  width: 9rem;
-  height: 9rem;
-  background-size: cover;
-}
-.name {
-  margin: 0;
-  padding: 0 0 0.2rem 0;
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--main-color);
-}
-.email {
-  display: block;
-  padding-bottom: 0.3rem;
-  text-decoration: none;
-  color: var(--text-color);
-}
-.description {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  font-size: 0.85rem;
-}
-</style>

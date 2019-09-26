@@ -68,16 +68,6 @@ export default {
   height: 5rem;
   background-size: cover;
 }
-.text-row {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: flex-start;
-}
-.text-item {
-  flex: 0 0 auto;
-  margin-left: 0.5rem;
-}
 .name {
   margin: 0;
   padding: 0;
