@@ -4,11 +4,26 @@ const API_KEY = 'AIzaSyBoX_m8IQZO2Fq__4XgkIRADhVXTJwtsbs'
 import sheets from '@/helpers/sheets'
 sheets.setKey(API_KEY)
 
-export async function loadMembers() {
-  const response = await sheets.getContent(DOC_ID, 'Members', 'A2:H')
+export async function loadData() {
+  const ranges = [
+    'Members!A2:H',
+    'Research!A2:F',
+    'Tags!A2:F',
+    'Links!A2:G'
+  ]
+  const response = await sheets.getRanges(DOC_ID, ranges)
+  const valueRanges = response.valueRanges
+  const members = getMembersFromValues(valueRanges[0].values)
+  const research = getResearchFromValues(valueRanges[1].values)
+  const tags = getTagsFromValues(valueRanges[2].values)
+  const links = getLinksFromValues(valueRanges[3].values)
+  return { members, research, tags, links }
+}
+
+function getMembersFromValues(values) {
   const groups = []
   let group = null
-  for (let row of response.values) {
+  for (let row of values) {
     const title = row[0]
     if (!group || (group.title !== title)) {
       if (group) {
@@ -32,11 +47,10 @@ export async function loadMembers() {
   return groups
 }
 
-export async function loadResearch() {
-  const response = await sheets.getContent(DOC_ID, 'Research', 'A2:F')
+ function getResearchFromValues(values) {
   const categories = []
   let category = null
-  for (let row of response.values) {
+  for (let row of values) {
     const title = row[0]
     if (!category || (category.title !== title)) {
       if (category) {
@@ -58,10 +72,9 @@ export async function loadResearch() {
   return categories
 }
 
-export async function loadTags() {
-  const response = await sheets.getContent(DOC_ID, 'Tags', 'A2:F')
+function getTagsFromValues(values) {
   const tags = {}
-  for (let row of response.values) {
+  for (let row of values) {
     const tagId = row[0]
     tags[tagId] = {
       title: row[1],
@@ -72,11 +85,10 @@ export async function loadTags() {
   return tags
 }
 
-export async function loadLinks() {
-  const response = await sheets.getContent(DOC_ID, 'Links', 'A2:G')
+function getLinksFromValues(values) {
   const groups = []
   let group = null
-  for (let row of response.values) {
+  for (let row of values) {
     const category = row[0]
     if (!group || (group.category !== category)) {
       if (group) {

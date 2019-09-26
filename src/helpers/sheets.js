@@ -22,6 +22,15 @@ class Sheets {
     const response = await fetch(url)
     return response.json()
   }
+
+  async getRanges(docId, ranges) {
+    this.validateKey()
+    
+    const rangeParams = ranges.map(r => `ranges=${encodeURI(r)}`).join('&')
+    const url = `${URL_BASE}/${docId}/values:batchGet?${rangeParams}&key=${this.key}`
+    const response = await fetch(url)
+    return response.json()
+  }
 }
 
 export default new Sheets()

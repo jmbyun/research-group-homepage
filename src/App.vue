@@ -45,7 +45,7 @@ export default {
     }
   },
   created() {
-    this.loadSheets()
+    this.loadData()
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
@@ -54,28 +54,14 @@ export default {
     window.removeEventListener("scroll", this.handleScroll)
   },
   methods: {
-    async loadSheets() {
-      let doneCount = 0
-      const done = () => {
-        doneCount++
-        if (doneCount === 3) {
-          this.loading = false
-        }
-      }
+    async loadData() {
       this.loading = true
-      this.research = await loader.loadResearch()
-      loader.loadTags().then(v => {
-        this.tags = v
-        done()
-      })
-      loader.loadMembers().then(v => {
-        this.members = v
-        done()
-      })
-      loader.loadLinks().then(v => {
-        this.links = v
-        done()
-      })
+      const data = await loader.loadData()
+      this.research = data.research
+      this.members = data.members
+      this.tags = data.tags
+      this.links = data.links
+      this.loading = false
     },
     handleScroll() {
       const top = window.scrollY
