@@ -1,0 +1,34 @@
+body { 
+  background-color: white;
+  font-family:      Georgia, "Times New Roman", Times, serif;
+  font-size:        small;
+  margin:           0px;
+}
+
+#main {
+/*
+	border:              thin solid #007e7e;
+*/
+	width:	800px;
+	font-size:        105%;
+	padding:          15px;
+	margin:           0px auto;
+}
+
+
+h1 {
+	font-size:        150%;
+	color:            #954b4b;
+}
+
+h2 {
+	font-size: 120%;
+}
+
+#qustionform{
+}
+
+#questionform p {
+	font-size:130%;
+}
+

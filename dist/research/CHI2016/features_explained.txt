@@ -1,0 +1,224 @@
+###
+The feature set below is made of the RIOT API’s champion static data
+(e.g. https://developer.riotgames.com -> lol-static-data -> champion).
+We retrieved the float, integer, and binary information only.
+###
+
+## Armor & Magic resistance (4)
+
+Armor offset
+Armor per level
+
+Spell block offset
+Spell block per level
+
+
+## Attack (11)
+
+Attack coefficienct of the champion's 1st spell
+Attack coefficienct of the champion's 2nd spell
+Attack coefficienct of the champion's 3rd spell
+Attack coefficienct of the champion's 4th spell
+
+Attack damage offset
+Attack damage per level
+
+Attack range
+
+Attack speed offset
+Attack speed per level
+
+Critical hit chance offset
+Critical hit chance per level
+
+
+## Magic (4)
+
+Magic coefficienct of the champion's 1st spell
+Magic coefficienct of the champion's 2nd spell
+Magic coefficienct of the champion's 3rd spell
+Magic coefficienct of the champion's 4th spell
+
+
+## Cooldown & spell cost (8)
+
+Cooldown of the champion's 1st spell
+Cooldown of the champion's 2nd spell
+Cooldown of the champion's 3rd spell
+Cooldown of the champion's 4th spell
+
+Cost of the champion's 1st spell
+Cost of the champion's 2nd spell
+Cost of the champion's 3rd spell
+Cost of the champion's 4th spell
+
+
+## Health Points & mana points (8)
+
+Hp offset
+Hp per level
+Hp regen offset
+Hp regen per level
+
+Mp offset
+Mp per level
+Mp regen offset
+Mp regen per level
+
+
+## Movements (2)
+
+Movespeed offset
+Movespeed per level
+
+
+## Skill range (4)
+
+Range of the champion's 1st spell
+Range of the champion's 2nd spell
+Range of the champion's 3rd spell
+Range of the champion's 4th spell
+
+
+## Riot’s champion evaluations (1-10 scale) (4)
+
+Difficulty
+Attack
+Defense
+Magic
+
+
+## Riot’s champion evaluations (binary) (6)
+
+Whether the champion is Assassin
+Whether the champion is Fighter
+Whether the champion is Mage
+Whether the champion is Marksman
+Whether the champion is Support
+Whether the champion is Tank
+
+
+## Riot’s recommended items for each champion (binary) (121)
+
+
+Whether item id 1001 is recommended
+Whether item id 1004 is recommended
+Whether item id 1011 is recommended
+Whether item id 1026 is recommended
+Whether item id 1027 is recommended
+Whether item id 1028 is recommended
+Whether item id 1029 is recommended
+Whether item id 1033 is recommended
+Whether item id 1036 is recommended
+Whether item id 1038 is recommended
+Whether item id 1039 is recommended
+Whether item id 1042 is recommended
+Whether item id 1052 is recommended
+Whether item id 1053 is recommended
+Whether item id 1054 is recommended
+Whether item id 1055 is recommended
+Whether item id 1056 is recommended
+Whether item id 2003 is recommended
+Whether item id 2004 is recommended
+Whether item id 2041 is recommended
+Whether item id 2043 is recommended
+Whether item id 2044 is recommended
+Whether item id 2049 is recommended
+Whether item id 2137 is recommended
+Whether item id 2138 is recommended
+Whether item id 2139 is recommended
+Whether item id 2140 is recommended
+Whether item id 3001 is recommended
+Whether item id 3003 is recommended
+Whether item id 3004 is recommended
+Whether item id 3006 is recommended
+Whether item id 3009 is recommended
+Whether item id 3010 is recommended
+Whether item id 3020 is recommended
+Whether item id 3022 is recommended
+Whether item id 3023 is recommended
+Whether item id 3024 is recommended
+Whether item id 3025 is recommended
+Whether item id 3026 is recommended
+Whether item id 3027 is recommended
+Whether item id 3028 is recommended
+Whether item id 3031 is recommended
+Whether item id 3035 is recommended
+Whether item id 3041 is recommended
+Whether item id 3044 is recommended
+Whether item id 3046 is recommended
+Whether item id 3047 is recommended
+Whether item id 3050 is recommended
+Whether item id 3057 is recommended
+Whether item id 3065 is recommended
+Whether item id 3067 is recommended
+Whether item id 3068 is recommended
+Whether item id 3069 is recommended
+Whether item id 3070 is recommended
+Whether item id 3071 is recommended
+Whether item id 3072 is recommended
+Whether item id 3074 is recommended
+Whether item id 3075 is recommended
+Whether item id 3078 is recommended
+Whether item id 3082 is recommended
+Whether item id 3083 is recommended
+Whether item id 3085 is recommended
+Whether item id 3086 is recommended
+Whether item id 3087 is recommended
+Whether item id 3089 is recommended
+Whether item id 3091 is recommended
+Whether item id 3092 is recommended
+Whether item id 3100 is recommended
+Whether item id 3101 is recommended
+Whether item id 3102 is recommended
+Whether item id 3105 is recommended
+Whether item id 3108 is recommended
+Whether item id 3110 is recommended
+Whether item id 3111 is recommended
+Whether item id 3115 is recommended
+Whether item id 3116 is recommended
+Whether item id 3117 is recommended
+Whether item id 3124 is recommended
+Whether item id 3134 is recommended
+Whether item id 3135 is recommended
+Whether item id 3136 is recommended
+Whether item id 3139 is recommended
+Whether item id 3140 is recommended
+Whether item id 3142 is recommended
+Whether item id 3143 is recommended
+Whether item id 3144 is recommended
+Whether item id 3146 is recommended
+Whether item id 3151 is recommended
+Whether item id 3152 is recommended
+Whether item id 3153 is recommended
+Whether item id 3156 is recommended
+Whether item id 3157 is recommended
+Whether item id 3158 is recommended
+Whether item id 3165 is recommended
+Whether item id 3174 is recommended
+Whether item id 3190 is recommended
+Whether item id 3198 is recommended
+Whether item id 3211 is recommended
+Whether item id 3222 is recommended
+Whether item id 3270 is recommended
+Whether item id 3285 is recommended
+Whether item id 3301 is recommended
+Whether item id 3302 is recommended
+Whether item id 3303 is recommended
+Whether item id 3340 is recommended
+Whether item id 3401 is recommended
+Whether item id 3508 is recommended
+Whether item id 3512 is recommended
+Whether item id 3707 is recommended
+Whether item id 3708 is recommended
+Whether item id 3709 is recommended
+Whether item id 3710 is recommended
+Whether item id 3717 is recommended
+Whether item id 3719 is recommended
+Whether item id 3720 is recommended
+Whether item id 3721 is recommended
+Whether item id 3722 is recommended
+Whether item id 3724 is recommended
+Whether item id 3725 is recommended
+Whether item id 3726 is recommended
+Whether item id 3800 is recommended

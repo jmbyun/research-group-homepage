@@ -83,6 +83,15 @@ export default class Logo {
         });
     }
 
+    setDefaultColor(color) {
+        this.options.defaultColor = color;
+        this.circles.map(circle => {
+            if (circle !== this.circleMatrix[0][1]) {
+                circle.fill(color);
+            }
+        });
+    }
+
     async play() {
         const { animation, bigRadius, duration, size, rotate } = this.options;
         if (rotate) {

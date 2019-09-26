@@ -7829,9 +7829,9 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-"uilab-logo.js@git+https://github.com/uilab-github/uilab-logo.js.git":
+"uilab-logo.js@git+https://github.com/uilab-github/uilab-logo.js.git#^1.2.0":
   version "1.1.0"
-  resolved "git+https://github.com/uilab-github/uilab-logo.js.git#bfd51eb929eacea8597f36ffa629c110a86b81a5"
+  resolved "git+https://github.com/uilab-github/uilab-logo.js.git#70ca94bac4ad92a8545fc05b186b5524d53de910"
   dependencies:
     svg.js "^2.7.1"
 

@@ -49,15 +49,10 @@ export default {
   watch: {
     scrolled() {
       if (this.scrolled) {
-        this.logo.options.defaultColor = '#222222'
+        this.logo.setDefaultColor('#222222');
       } else {
-        this.logo.options.defaultColor = '#ffffff'
+        this.logo.setDefaultColor('#ffffff');
       }
-      this.logo.circles.map(circle => {
-        if (circle !== this.logo.circleMatrix[0][1]) {
-          circle.fill(this.logo.options.defaultColor)
-        }
-      })
     }
   }
 }

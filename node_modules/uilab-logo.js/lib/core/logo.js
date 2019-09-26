@@ -97,6 +97,15 @@ class Logo {
     });
   }
 
+  setDefaultColor(color) {
+    this.options.defaultColor = color;
+    this.circles.map(circle => {
+      if (circle !== this.circleMatrix[0][1]) {
+        circle.fill(color);
+      }
+    });
+  }
+
   async play() {
     const _this$options3 = this.options,
           animation = _this$options3.animation,

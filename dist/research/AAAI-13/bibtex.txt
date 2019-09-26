@@ -1,0 +1,6 @@
+@inproceedings{kim2013aaai,
+  title={A Hierarchical Aspect-Sentiment Model for Online Reviews},
+  author={Kim, Suin and Zhang, Jianwen and Chen, Zheng and Oh, Alice and Liu, Shixia},
+  year={2013},
+  booktitle={Proceedings of the Twenty-Seventh AAAI Conference on Artificial Intelligence}
+}

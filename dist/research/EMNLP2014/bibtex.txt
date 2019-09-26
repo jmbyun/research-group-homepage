@@ -1,0 +1,6 @@
+@inproceedings{bak2014emnlp,
+  title={Self-disclosure topic model for classifying and analyzing Twitter conversations},
+  author={Bak, JinYeong and Lin, Chin-Yew and Oh, Alice},
+  booktitle={Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing},
+  year={2014}
+}

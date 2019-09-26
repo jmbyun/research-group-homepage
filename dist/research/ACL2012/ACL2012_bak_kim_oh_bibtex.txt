@@ -1,0 +1,6 @@
+@inproceedings{bak2012acl,
+author={JinYeong Bak and Suin Kim and Alice Oh},
+title={Self-Disclosure and Relationship Strength in Twitter Conversations},
+booktitle={Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics},
+year={2012}
+}
